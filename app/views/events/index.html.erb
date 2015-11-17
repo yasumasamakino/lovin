@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="columns medium-12">
+    検索条件エリア
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns medium-3">
+  </div>
+  <div class="columns medium-9">
+
+    <% @events.each do |event| %>
+    <div class="panel cassette">
+      <div class="cols-title">
+        <h3><%= event.title %><br><%= event.sub_title %></h3>
+      </div>
+      <div class="cols">
+
+        <div class="col-image">
+         <%= link_to image_tag('examples/space-th-sm.jpg', { :id => "img_id", :class => "th", :alt => "ほげ"}) %>
+        </div>
+
+        <div class="col-text">
+          <div class="text-row">
+            <%= event.area_cd %>　<%= event.kaisai_date %>
+          </div>
+          <div class="text-row">
+            男性 5,000円　女性 3,000円
+          </div>
+          <div class="text-row">
+            <%= event.teiin %>
+          </div>
+          <div class="text-row">
+            <%= event.agegroup_cd %>
+          </div>
+        </div>
+
+        <div class="col-button">
+          <ul class="button-group">
+            <li><a href="#" class="button">詳しく見る</a></li>
+            <li><a href="#" class="button">予約する</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <% end %>
+  </div>
+  </div>
