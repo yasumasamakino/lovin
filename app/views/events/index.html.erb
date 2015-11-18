@@ -11,38 +11,47 @@
 
     <% @events.each do |event| %>
     <div class="panel cassette">
-      <div class="cols-title">
-        <h3><%= event.title %><br><%= event.sub_title %></h3>
+      <div class="event_base">
+        <div class="event_area">
+          エリア<%= event.area_cd %>
+        </div>
+        <div class="event_thedate">
+          <%= event.kaisai_date %>
+        </div>
+        <div class="event_agegroup">
+          年令層<%= event.agegroup_cd %>
+        </div>
       </div>
-      <div class="cols">
 
-        <div class="col-image">
-         <%= link_to image_tag('examples/space-th-sm.jpg', { :id => "img_id", :class => "th", :alt => "ほげ"}) %>
+      <div class="event_title">
+        <div class="maintitle">
+          <h4><%= event.title %></h4>
         </div>
-
-        <div class="col-text">
-          <div class="text-row">
-            <%= event.area_cd %>　<%= event.kaisai_date %>
-          </div>
-          <div class="text-row">
-            男性 5,000円　女性 3,000円
-          </div>
-          <div class="text-row">
-            <%= event.teiin %>
-          </div>
-          <div class="text-row">
-            <%= event.agegroup_cd %>
-          </div>
+        <div class="subtitle">
+          <h7><%= event.sub_title %></h7>
         </div>
-
-        <div class="col-button">
-          <ul class="button-group">
-            <li><a href="#" class="button">詳しく見る</a></li>
-            <li><a href="#" class="button">予約する</a></li>
-          </ul>
-        </div>
-
       </div>
+
+
+      <div class="event_subcontents">
+        <div class="event_image">
+         <%= link_to image_tag('examples/150x150.png', { :id => "img_id", :class => "th", :alt => "ほげ"}) %>
+        </div>
+
+        <div class="subcontents">
+          男性 5,000円　女性 3,000円
+        </div>
+        <div class="subcontents">
+          <%= event.teiin %>
+        </div>
+      </div>
+
+      <div class="event_join">
+        <div class="join_button">
+          <a href="#" class="button expand">参加する</a>
+        </div>
+      </div>
+
     </div>
     <% end %>
   </div>

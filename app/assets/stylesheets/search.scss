@@ -1,0 +1,85 @@
+// Place all the styles related to the top controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.cassette{
+}
+
+.event_base {
+  *zoom:1;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+.event_area {
+  width: 10%;
+  float: left;
+}
+.event_thedate {
+  width: 30%;
+  float: left;
+}
+.event_agegroup {
+  float: left;
+}
+.event_title {
+  clear: both;
+  margin-bottom: 10px;
+}
+.maintitle {
+}
+.subtitle {
+  font-size: 80%;
+}
+
+.event_subcontents {
+  *zoom:1;
+  overflow: hidden;
+}
+.event_image {
+  float: left;
+  width: 30%;
+  *clear: right;
+}
+.subcontents {
+  float: left;
+  width: 70%;
+  margin-bottom: 5px;
+}
+
+.event_join {
+  *zoom:1;
+  overflow: hidden;
+}
+.join_button {
+  width: 100%;
+  float: right;
+  margin-top: 10px;
+}
+
+button, .button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0;
+  border-style: solid;
+  border-width: 0;
+  cursor: pointer;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-weight: normal;
+  line-height: normal;
+  margin: 0 0 0 0rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 1rem 2rem 1.0625rem 2rem;
+  font-size: 1rem;
+  background-color: #008CBA;
+  border-color: #007095;
+  color: #FFFFFF;
+  transition: background-color 300ms ease-out; }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #222222;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.4;
+    text-rendering: optimizeLegibility; }
