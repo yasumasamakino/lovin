@@ -74,8 +74,10 @@ ActiveRecord::Schema.define(version: 20151120154705) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.integer  "organizer_id",      limit: 4
+    t.integer  "ageGroup_id",       limit: 4
   end
 
+  add_index "events", ["ageGroup_id"], name: "index_events_on_ageGroup_id", using: :btree
   add_index "events", ["organizer_id"], name: "index_events_on_organizer_id", using: :btree
 
   create_table "organizers", force: :cascade do |t|
