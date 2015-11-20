@@ -1,4 +1,4 @@
-ActiveAdmin.register Event do
+ActiveAdmin.register Prefecture do
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -13,6 +13,6 @@ ActiveAdmin.register Event do
 #   permitted
 # end
 
-permit_params :title, :sub_title, :teiin, :kaisai_date, :kaisai_place, :organizer_cd, :notice, :food, :drink, :cancellation_date, :clothes, :belongings
+permit_params :name
 
 end

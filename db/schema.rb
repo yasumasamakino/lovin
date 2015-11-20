@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151120154705) do
+ActiveRecord::Schema.define(version: 20151120163214) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -46,6 +46,18 @@ ActiveRecord::Schema.define(version: 20151120154705) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "age_groups", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "areas", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "event_descriptions", force: :cascade do |t|
     t.text     "description", limit: 65535
     t.datetime "created_at",                null: false
@@ -58,10 +70,7 @@ ActiveRecord::Schema.define(version: 20151120154705) do
   create_table "events", force: :cascade do |t|
     t.string   "title",             limit: 255
     t.string   "sub_title",         limit: 255
-    t.string   "prefectures_cd",    limit: 255
-    t.string   "area_cd",           limit: 255
     t.string   "teiin",             limit: 255
-    t.string   "agegroup_cd",       limit: 255
     t.datetime "kaisai_date"
     t.string   "kaisai_place",      limit: 255
     t.string   "organizer_cd",      limit: 255
@@ -75,10 +84,14 @@ ActiveRecord::Schema.define(version: 20151120154705) do
     t.datetime "updated_at",                      null: false
     t.integer  "organizer_id",      limit: 4
     t.integer  "ageGroup_id",       limit: 4
+    t.integer  "prefecture_id",     limit: 4
+    t.integer  "area_id",           limit: 4
   end
 
   add_index "events", ["ageGroup_id"], name: "index_events_on_ageGroup_id", using: :btree
+  add_index "events", ["area_id"], name: "index_events_on_area_id", using: :btree
   add_index "events", ["organizer_id"], name: "index_events_on_organizer_id", using: :btree
+  add_index "events", ["prefecture_id"], name: "index_events_on_prefecture_id", using: :btree
 
   create_table "organizers", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -86,6 +99,14 @@ ActiveRecord::Schema.define(version: 20151120154705) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "prefectures", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   add_foreign_key "event_descriptions", "events"
+  add_foreign_key "events", "areas"
   add_foreign_key "events", "organizers"
+  add_foreign_key "events", "prefectures"
 end
