@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151120151750) do
+ActiveRecord::Schema.define(version: 20151120154705) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -73,7 +73,10 @@ ActiveRecord::Schema.define(version: 20151120151750) do
     t.string   "belongings",        limit: 255
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.integer  "organizer_id",      limit: 4
   end
+
+  add_index "events", ["organizer_id"], name: "index_events_on_organizer_id", using: :btree
 
   create_table "organizers", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -82,4 +85,5 @@ ActiveRecord::Schema.define(version: 20151120151750) do
   end
 
   add_foreign_key "event_descriptions", "events"
+  add_foreign_key "events", "organizers"
 end
