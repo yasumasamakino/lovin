@@ -4,55 +4,83 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="columns medium-3">
-  </div>
-  <div class="columns medium-9">
-
-    <% @events.each do |event| %>
-    <div class="panel cassette">
-      <div class="event_base">
-        <div class="event_area">
-          エリア<%= event.area_cd %>
-        </div>
-        <div class="event_thedate">
-          <%= event.kaisai_date %>
-        </div>
-        <div class="event_agegroup">
-          年令層<%= event.agegroup_cd %>
-        </div>
-      </div>
-
-      <div class="event_title">
-        <div class="maintitle">
-          <h4><%= event.title %></h4>
-        </div>
-        <div class="subtitle">
-          <h7><%= event.sub_title %></h7>
-        </div>
-      </div>
-
-
-      <div class="event_subcontents">
-        <div class="event_image">
-         <%= link_to image_tag('examples/150x150.png', { :id => "img_id", :class => "th", :alt => "ほげ"}) %>
-        </div>
-
-        <div class="subcontents">
-          男性 5,000円　女性 3,000円
-        </div>
-        <div class="subcontents">
-          <%= event.teiin %>
-        </div>
-      </div>
-
-      <div class="event_join">
-        <div class="join_button">
-          <a href="#" class="button expand">参加する</a>
-        </div>
-      </div>
-
+  <div class="row">
+    <div class="columns medium-3">
+      <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+          <a href="#panel1a">絞り込み</a>
+          <div id="panel1a" class="content active">
+            <div class="search_condition">
+              <label>開催日
+                <input type="text" name="kaisaidate" placeholder="クリックして！" />
+              </label>
+            </div>
+            <div class="search_condition">
+              <label>エリア</label>
+              <ul class="small-block-grid-3  medium-block-grid-2 ">
+                <li><input id="checkbox1" type="checkbox" name="area" value="1"><label for="checkbox1">銀座</label></li>
+                <li><input id="checkbox2" type="checkbox" name="area" value="2"><label for="checkbox2">丸の内</label></li>
+                <li><input id="checkbox2" type="checkbox" name="area" value="3"><label for="checkbox2">草加</label></li>
+                <li><input id="checkbox2" type="checkbox" name="area" value="4"><label for="checkbox2">浅草橋</label></li>
+              </ul>
+            </div>
+            <div class="search_condition">
+              <label>フリーワード
+                <input type="text" name="fw" placeholder="large-4.columns" />
+              </label>
+            </div>
+            </form>
+            <div class="search_condition_button">
+              <p><input type="button" value="絞り込む" class="button" /></p>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
-    <% end %>
-  </div>
+    <div class="columns medium-9">
+
+      <% @events.each do |event| %>
+      <div class="panel cassette">
+        <div class="event_base">
+          <div class="event_area">
+          </div>
+          <div class="event_thedate">
+            <%= event.kaisai_date %>
+          </div>
+          <div class="event_agegroup">
+          </div>
+        </div>
+
+        <div class="event_title">
+          <div class="maintitle">
+            <h4><%= event.title %></h4>
+          </div>
+          <div class="subtitle">
+            <h7><%= event.sub_title %></h7>
+          </div>
+        </div>
+
+
+        <div class="event_subcontents">
+          <div class="event_image">
+           <%= link_to image_tag('examples/150x150.png', { :id => "img_id", :class => "th", :alt => "ほげ"}) %>
+          </div>
+
+          <div class="subcontents">
+            男性 5,000円　女性 3,000円
+          </div>
+          <div class="subcontents">
+            <%= event.teiin %>
+          </div>
+        </div>
+
+        <div class="event_join">
+          <div class="join_button">
+            <a href="#" class="button expand">参加する</a>
+          </div>
+        </div>
+
+      </div>
+      <% end %>
+    </div>
   </div>

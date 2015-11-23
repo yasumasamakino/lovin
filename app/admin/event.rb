@@ -13,6 +13,6 @@ ActiveAdmin.register Event do
 #   permitted
 # end
 
-permit_params :title, :sub_title, :teiin, :kaisai_date, :kaisai_place, :organizer_cd, :notice, :food, :drink, :cancellation_date, :clothes, :belongings
+permit_params :title, :sub_title, :teiin, :kaisai_date, :kaisai_place, :notice, :food, :drink, :cancellation_date, :clothes, :belongings,:organizer_id,:ageGroup_id,:prefecture_id,:area_id,:kaisai_date_search
 
 end
