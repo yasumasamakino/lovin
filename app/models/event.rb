@@ -28,6 +28,7 @@ class Event < ActiveRecord::Base
 
     area = search_param[:area]
     if area.present?
+      area = area.split("_")
       if isFirstCondition
         sql << " where"
         isFirstCondition = false

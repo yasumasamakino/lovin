@@ -4,7 +4,29 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+    #イベントの検索処理
     @events = Event.searchInCondition(params)
+    #検索_フリーワードのセット
+    @fw = params[:fw]
+    #検索_開催日のセット
+    @kaisaidate = params[:kaisaidate]
+    #検索_チェックボックの作成＆セット
+    @areaCheckbox = Array.new
+    areas = Area.order(id: :asc)
+    areaCheckedId = Array.new
+    if params[:area].present?
+      areaCheckedId = params[:area].split("_")
+    end
+    areas.each{|area|
+      checked = false
+      areaCheckedId.each{|checkedId|
+        if checkedId == area.id.to_s
+          checked = true
+        end
+      }
+      @areaCheckbox.push([area.id, area.name, checked])
+    }
+
   end
 
   # GET /events/1
