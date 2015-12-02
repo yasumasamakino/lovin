@@ -43,6 +43,7 @@ class Event < ActiveRecord::Base
 
     kaisaidate = search_param[:kaisaidate]
     if kaisaidate.present?
+      kaisaidate = kaisaidate.match(/\d{4}\/\d{2}\/\d{2}/)
       if isFirstCondition
         sql << " where"
         isFirstCondition = false
