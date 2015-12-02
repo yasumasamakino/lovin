@@ -90,6 +90,8 @@ GEM
     globalize3 (0.1.0)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
+    gretel (3.0.8)
+      rails (>= 3.2.0)
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -213,6 +215,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   devise-i18n
+  gretel
   jbuilder (~> 2.0)
   jquery-rails
   mysql2 (~> 0.3.20)

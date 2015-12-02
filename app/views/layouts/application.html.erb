@@ -19,10 +19,12 @@
     <div class="columns medium-12">
       <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area">
+          <li class="name">
+            <h1></h1>
+          </li>
            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
           <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
         </ul>
-
         <section class="top-bar-section">
           <!-- Right Nav Section -->
           <ul class="right">
@@ -30,14 +32,13 @@
             <li><a href="#">問い合わせ</a></li>
             <li><a href="#">ログイン</a></li>
           </ul>
-          <!-- Left Nav Section -->
         </section>
       </nav>
     </div>
   </div>
   <div class="row">
     <div class="columns medium-12">
-      パンくずエリア
+      <%= breadcrumbs separator: " &rsaquo; ", class: nil %>
     </div>
   </div>
 <%= yield %>

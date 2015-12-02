@@ -28,6 +28,9 @@ gem 'activeadmin-translate'
 gem 'devise'
 gem 'devise-i18n'
 
+# pankuzu
+gem 'gretel'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
