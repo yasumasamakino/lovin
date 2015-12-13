@@ -32,6 +32,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @eventDescription =  EventDescription.detail(@event.id)
   end
 
   # GET /events/new

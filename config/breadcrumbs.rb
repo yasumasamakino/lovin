@@ -14,6 +14,12 @@ crumb :events do
   parent :root
 end
 
+# event#show
+crumb :eventsDetail do
+  link "イベント詳細"
+  parent :root
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end

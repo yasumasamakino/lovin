@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123092235) do
+ActiveRecord::Schema.define(version: 20151213041015) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 20151123092235) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.integer  "event_id",    limit: 4
+    t.string   "title",       limit: 255
+    t.integer  "disp_order",  limit: 4
   end
 
   add_index "event_descriptions", ["event_id"], name: "index_event_descriptions_on_event_id", using: :btree

@@ -6,11 +6,19 @@ class Event < ActiveRecord::Base
   belongs_to :area
 
   def self.searchInCondition(search_param)
-    sql = "select * from events"
+    sql = ""
+    sql << "select evt.*"
+    sql << " ,org.name as org_name"
+    sql << " ,agp.name as ageGrp_name"
+    sql << " ,ara.name as area_name"
+    sql << " from events evt"
+    sql << " join organizers org on evt.organizer_id = org.id"
+    sql << " join age_groups agp on evt.ageGroup_id = agp.id"
+    sql << " join areas ara on evt.area_id = ara.id"
     isFirstCondition = true
     cond = Hash.new
 
-    logger.debug(search_param)
+    # logger.debug(search_param)
 
     fw = search_param[:fw]
     if fw.present?
@@ -20,11 +28,11 @@ class Event < ActiveRecord::Base
       else
         sql << " and"
       end
-      sql << " (title like :fw or sub_title like :fw or kaisai_place like :fw or notice like :fw)"
+      sql << " (evt.title like :fw or evt.sub_title like :fw or evt.kaisai_place like :fw or evt.notice like :fw)"
       cond[:fw] = "%#{fw}%"
     end
 
-    logger.debug(sql)
+    # logger.debug(sql)
 
     area = search_param[:area]
     if area.present?
@@ -35,11 +43,11 @@ class Event < ActiveRecord::Base
       else
         sql << " and"
       end
-      sql << " area_id in (:area)"
+      sql << " evt.area_id in (:area)"
       cond[:area] = area
     end
 
-    logger.debug(sql)
+    # logger.debug(sql)
 
     kaisaidate = search_param[:kaisaidate]
     if kaisaidate.present?
@@ -50,7 +58,7 @@ class Event < ActiveRecord::Base
       else
         sql << " and"
       end
-      sql << " kaisai_date_search = :kaisaidatesearch"
+      sql << " evt.kaisai_date_search = :kaisaidatesearch"
       cond[:kaisaidatesearch] = kaisaidate
     end
     Event.find_by_sql([sql , cond])

@@ -1,79 +1,13 @@
-<p id="notice"><%= notice %></p>
+<% breadcrumb :eventsDetail %>
+<div class="row">
+  <div class="columns medium-12">
 
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
+    <% @eventDescription.each do |desc| %>
+    <h1><%= desc.title %></h1>
+    <p><%= simple_format(desc.description) %></p>
+    <% end %>
 
-<p>
-  <strong>Sub title:</strong>
-  <%= @event.sub_title %>
-</p>
+    <%= link_to '戻る', events_path %>
 
-<p>
-  <strong>Prefectures cd:</strong>
-  <%= @event.prefectures_cd %>
-</p>
-
-<p>
-  <strong>Area cd:</strong>
-  <%= @event.area_cd %>
-</p>
-
-<p>
-  <strong>Teiin:</strong>
-  <%= @event.teiin %>
-</p>
-
-<p>
-  <strong>Agegroup cd:</strong>
-  <%= @event.agegroup_cd %>
-</p>
-
-<p>
-  <strong>Kaisai date:</strong>
-  <%= @event.kaisai_date %>
-</p>
-
-<p>
-  <strong>Kaisai place:</strong>
-  <%= @event.kaisai_place %>
-</p>
-
-<p>
-  <strong>Organizer cd:</strong>
-  <%= @event.organizer_cd %>
-</p>
-
-<p>
-  <strong>Notice:</strong>
-  <%= @event.notice %>
-</p>
-
-<p>
-  <strong>Food:</strong>
-  <%= @event.food %>
-</p>
-
-<p>
-  <strong>Drink:</strong>
-  <%= @event.drink %>
-</p>
-
-<p>
-  <strong>Cancellation date:</strong>
-  <%= @event.cancellation_date %>
-</p>
-
-<p>
-  <strong>Clothes:</strong>
-  <%= @event.clothes %>
-</p>
-
-<p>
-  <strong>Belongings:</strong>
-  <%= @event.belongings %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+  </div>
+</div>

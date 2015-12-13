@@ -12,6 +12,6 @@ ActiveAdmin.register EventDescription do
 #   permitted << :other if resource.something?
 #   permitted
 # end
-permit_params :description, :event_id
+permit_params :description, :event_id, :title, :disp_order
 
 end
