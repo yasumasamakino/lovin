@@ -31,6 +31,9 @@ gem 'devise-i18n'
 # pankuzu
 gem 'gretel'
 
+#pager
+gem 'kaminari'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

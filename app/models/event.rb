@@ -61,7 +61,8 @@ class Event < ActiveRecord::Base
       sql << " evt.kaisai_date_search = :kaisaidatesearch"
       cond[:kaisaidatesearch] = kaisaidate
     end
-    Event.find_by_sql([sql , cond])
+    @events = Event.find_by_sql([sql , cond])
+    @events = Kaminari.paginate_array(@events).page(search_param[:page]).per(1)
   end
 
 end
