@@ -30,7 +30,18 @@
           <ul class="right">
             <li><a href="/">HOME</a></li>
             <li><a href="#">問い合わせ</a></li>
-            <li><a href="#">ログイン</a></li>
+            <li>
+              <% if user_signed_in? %>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+              <% else %>
+                <%= link_to "ログイン", new_user_session_path %>
+              <% end %>
+            </li>
+            <% if user_signed_in? %>
+            <li>
+              <%= link_to 'プロフィール変更', edit_user_registration_path %> 
+            </li>
+            <% end %>
           </ul>
         </section>
       </nav>
