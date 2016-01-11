@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        email: メールアドレス
+        name_sei: お名前(姓)
+        name_mei: お名前(名)
+        name_sei_kana: お名前(セイ)
+        name_mei_kana: お名前(メイ)
+        sex: ご性別
+        password: パスワード
+        password_confirmation: パスワード（確認用）
