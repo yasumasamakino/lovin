@@ -10,3 +10,4 @@ ja:
         sex: ご性別
         password: パスワード
         password_confirmation: パスワード（確認用）
+        remember_me: ログイン状態を保持する
